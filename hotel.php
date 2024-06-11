@@ -48,13 +48,25 @@ $hotels = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>php-Hotel</title>
 </head>
 
 <body>
-
-
-    <pre><?= var_dump($hotels); ?></pre>
+    <h2>Elenco degli Hotel</h2>
+    <div class="tab">
+        <table class="hotel">
+            <?php
+            foreach ($hotels as $hotel) {
+                echo "<th>" . $hotel['name'] . "</th>";
+                echo "<td>Descrizione: " . $hotel['description'] . "</td>";
+                echo "<td>Parcheggio: " . ($hotel['parking'] ? 'Sì' : 'No') . "</td>";
+                echo "<td>Voto: " . $hotel['vote'] . "</td>";
+                echo "<td>Distanza dal centro: " . $hotel['distance_to_center'] . " km</td>";
+            }
+            ?>
+        </table>
+    </div>
 
 </body>
 
